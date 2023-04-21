@@ -18,6 +18,9 @@
     $result = $conn->query($query);
         
     if($result->num_rows){
+        $row = $result->fetch_assoc();
+        session_start();
+        $_SESSION['id'] = $row['id'];
         header('location: home.php');
     }
     else{
