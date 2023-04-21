@@ -39,9 +39,10 @@ $contents = $result->fetch_assoc();
             <h3>Saint Padre Pio</h3>
          </ul>
          <ul class="links">
-            <li><a href="index.php">Home</a></li>
+            <li><a href="home.php">Home</a></li>
             <li><a href="photos.html">Photos</a></li>
             <li><a href="videos.html">Videos</a></li>
+            <li><a href="logout.php">Logout</a></li>
          </ul>
       </nav>
 
