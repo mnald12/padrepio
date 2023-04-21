@@ -1,0 +1,118 @@
+.display {
+   width: 100%;
+   padding: 30px;
+   display: flex;
+   align-items: center;
+   background-color: rgba(137, 43, 226, 0.151);
+   justify-content: center;
+}
+.display .d-left {
+   width: 50%;
+   height: auto;
+   padding: 50px;
+}
+.display .d-left h2 {
+   font-size: 26px;
+}
+.display .d-left p {
+   font-family: Courier;
+}
+.display .d-left a {
+   font-size: 22px;
+   color: darkviolet;
+   text-decoration: none;
+}
+.display .d-right {
+   width: auto;
+   height: 100%;
+}
+.display .d-right img {
+   width: 100%;
+   height: auto;
+}
+strong {
+   color: red;
+}
+
+.r-right{
+   position: sticky;
+   top: 85px;
+}
+
+.display2 {
+   width: 100%;
+   padding: 30px;
+   display: flex;
+   gap: 20px;
+   position: relative;
+}
+.display2 .d-left {
+   width: 400px;
+   height: 100%;
+   position: sticky;
+   top: 70px;
+}
+.display2 .d-left img {
+   width: 100%;
+   height: 100%;
+   max-height: 300px;
+}
+.display2 .d-right {
+   width: 70%;
+   height: auto;
+   padding: 20px;
+}
+.display2 .d-right h2 {
+   font-size: 22px;
+}
+.display2 .d-right p {
+   font-family: Courier;
+   font-size: 17px;
+}
+strong {
+   color: red;
+}
+.display2 .d-right button {
+   outline: none;
+   border: none;
+   padding: 10px 20px;
+   background-color: darkviolet;
+   color: aliceblue;
+   cursor: pointer;
+}
+.display2 .d-right button:hover {
+   box-shadow: 0 0 3px 0 black;
+}
+
+.hr-styled{
+   width: 90%;
+   height: auto;
+   padding: 40px 20px;
+   border-bottom: 1px dotted black;
+   margin: 50px auto 10px auto;
+   opacity: 0.60;
+   display: flex;
+   align-items: center;
+   position: relative;
+}
+.hr-styled h3{
+   font-size: 50px;
+   position: absolute;
+   left: 20px;
+}
+.hr-styled .action{
+   position: absolute;
+   right: 20px;
+}
+.hr-styled .action button{
+   border: none;
+   outline: none;
+   background-color: forestgreen;
+   color: aliceblue;
+   padding: 8px 20px;
+   border-radius: 20px;
+   cursor: pointer;
+}
+.hr-styled .action button:hover{
+   background-color: green;
+}
