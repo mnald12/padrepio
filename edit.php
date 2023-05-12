@@ -15,11 +15,26 @@ if($conn->connect_error){
    die("Connection Failed: ". $conn->connect_error());
 }
 
-$mode = mysqli_real_escape_string($conn, $_POST['mode']);
+$id = mysqli_real_escape_string($conn, $_GET['id']);
+$mode = mysqli_real_escape_string($conn, $_GET['mode']);
 
 if(!$mode){
    header('location: index.php');
 }
+
+$toupdate;
+
+if($mode === 'lifes'){
+    $q = "SELECT * FROM lifes Where id = '$id' ";
+    $res = $conn->query($q);
+    $toupdate = $res->fetch_assoc();
+}
+else{
+    $q = "SELECT * FROM phenomenas Where id = '$id' ";
+    $res = $conn->query($q);
+    $toupdate = $res->fetch_assoc();
+}
+
 ?>
 
 
@@ -78,11 +93,19 @@ if(!$mode){
             background: green;
             color: aliceblue;
             position: relative;
-            left: 88%;
+            left: 86%;
             cursor: pointer;
         }
         form button:hover{
             background: yellowgreen;
+        }
+        label{
+            display: block;
+        }
+        img{
+            width: auto;
+            height: auto;
+            max-height: 400px;
         }
       </style>
    </head>
@@ -99,26 +122,35 @@ if(!$mode){
          </ul>
       </nav>
 
-      <form action="save.php" method="post" enctype="multipart/form-data">
+      <form action="update.php" method="post" enctype="multipart/form-data">
+        <input type="text" name="id" value="<?= $toupdate['id'] ?>" hidden>
         <input type="text" name="mode" value="<?= $mode ?>" hidden>
-        <h3>Add New <?= $mode ?> Contents</h3>
+        <h3>Edit</h3>
         <hr>
         <label for="img">Image</label>
-        <input class="file" type="file" name="file" id="img">
+        <img src="pics/<?= $toupdate['image'] ?>" alt="" id="img">
+        <input class="file" type="file" name="file" id="img" onchange="c(event)">
         <label for="title">Title</label>
-        <input type="text" name="title" id="title">
+        <input type="text" name="title" id="title" value="<?= $toupdate['title'] ?>">
         <label for="summary">Summary</label>
-        <textarea name="summary" id="summary" cols="30" rows="10"></textarea>
+        <textarea name="summary" id="summary" cols="30" rows="10"><?= $toupdate['summary'] ?></textarea>
         <label for="contents">Contents</label>
-        <textarea name="contents" id="contents" cols="30" rows="10"></textarea>
-        <button>Save</button>
+        <textarea name="contents" id="contents" cols="30" rows="10"><?= $toupdate['contents'] ?></textarea>
+        <button>Update</button>
       </form>
 
       <div class="footer">
-         <h1>Padre Pio</h1>
-         <br />
-         © Copyright padrepio.com 2023. All Rights Reserved
+        <h1>Padre Pio</h1>
+        <br />
+        © Copyright padrepio.com 2023. All Rights Reserved
       </div>
+
+      <script>
+        const c = (event) => {
+            const img = document.getElementById('img')
+            img.src = URL.createObjectURL(event.target.files[0])+'#toolbar=0'
+        }
+      </script>
 
    </body>
 </html>

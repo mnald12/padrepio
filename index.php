@@ -1,4 +1,9 @@
-<?php session_start(); ?>
+<?php 
+session_start();
+if(isset($_SESSION['userid'])){
+   header('location: home.php');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -21,12 +26,20 @@
             background-color: red !important;
             color: white;
          }
+         img{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            left: 130px;
+            top: -50px;
+         }
       </style>
-      <link rel="stylesheet" href="index.css" />
+      <link rel="stylesheet" href="index.css?v=<?php echo time(); ?>" />
    </head>
    <body>
       <div class="login-page">
          <div class="form">
+            <img src="pics/81696o63-HL.png" alt="">
             <form class="login-form" action="login.php" method="post">
                <h3>Padre Pio | Login</h3>
                <?php if(isset($_SESSION['error_message'])): ?>

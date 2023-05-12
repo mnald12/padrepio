@@ -20,7 +20,7 @@
     if($result->num_rows){
         $row = $result->fetch_assoc();
         session_start();
-        $_SESSION['id'] = $row['id'];
+        $_SESSION['userid'] = $row['id'];
         header('location: home.php');
     }
     else{

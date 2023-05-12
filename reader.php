@@ -1,5 +1,10 @@
 <?php
 
+session_start();
+if(!isset($_SESSION['userid'])){
+   header('location: index.php');
+}
+
 $database = 'database';
 $username = 'root';
 $host = 'localhost';
@@ -13,7 +18,7 @@ $id = mysqli_real_escape_string($conn, $_POST['id']);
 $mode = mysqli_real_escape_string($conn, $_POST['mode']);
 
 if(!$id && !$mode){
-   header('location: index.php');
+   header('location: home.php');
 }
 
 $query = "SELECT * FROM `$mode` where id = '$id' ";
@@ -40,8 +45,8 @@ $contents = $result->fetch_assoc();
          </ul>
          <ul class="links">
             <li><a href="home.php">Home</a></li>
-            <li><a href="photos.html">Photos</a></li>
-            <li><a href="videos.html">Videos</a></li>
+            <li><a href="photos.php">Photos</a></li>
+            <li><a href="videos.php">Videos</a></li>
             <li><a href="logout.php">Logout</a></li>
          </ul>
       </nav>

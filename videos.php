@@ -1,3 +1,10 @@
+<?php
+session_start();
+if(!isset($_SESSION['userid'])){
+   header('location: index.php');
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -15,7 +22,7 @@
          </ul>
          <ul class="links">
             <li><a href="home.php">Home</a></li>
-            <li><a href="photos.html">Photos</a></li>
+            <li><a href="photos.php">Photos</a></li>
             <li><a href="#" class="active">Videos</a></li>
             <li><a href="logout.php">Logout</a></li>
          </ul>

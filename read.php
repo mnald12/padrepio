@@ -1,3 +1,9 @@
+<?php
+session_start();
+if(!isset($_SESSION['userid'])){
+   header('location: index.php');
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,8 +20,8 @@
          </ul>
          <ul class="links">
             <li><a href="home.php">Home</a></li>
-            <li><a href="photos.html">Photos</a></li>
-            <li><a href="videos.html">Videos</a></li>
+            <li><a href="photos.php">Photos</a></li>
+            <li><a href="videos.php">Videos</a></li>
             <li><a href="logout.php">Logout</a></li>
          </ul>
       </nav>

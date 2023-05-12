@@ -1,8 +1,8 @@
 <?php
 session_start();
-if(!isset($_SESSION['id'])){
-    header('location: index.php');
- }
+if(!isset($_SESSION['userid'])){
+   header('location: index.php');
+}
 
 $database = 'database';
 $username = 'root';
@@ -37,8 +37,8 @@ while($row = $pr->fetch_assoc()){
       <meta http-equiv="X-UA-Compatible" content="IE=edge" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <title>Home</title>
-      <link rel="stylesheet" href="nav.css" />
-      <link rel="stylesheet" href="index.css" />
+      <link rel="stylesheet" href="nav.css?v=<?php echo time(); ?>" />
+      <link rel="stylesheet" href="index.css?v=<?php echo time(); ?>" />
    </head>
    <body>
       <nav>
@@ -47,8 +47,8 @@ while($row = $pr->fetch_assoc()){
          </ul>
          <ul class="links">
             <li><a class="active" href="#">Home</a></li>
-            <li><a href="photos.html">Photos</a></li>
-            <li><a href="videos.html">Videos</a></li>
+            <li><a href="photos.php">Photos</a></li>
+            <li><a href="videos.php">Videos</a></li>
             <li><a href="logout.php">Logout</a></li>
          </ul>
       </nav>
@@ -93,6 +93,8 @@ while($row = $pr->fetch_assoc()){
                      <input type="text" name="id" value="<?= $row['id'] ?>" hidden>
                      <input type="text" name="mode" value="lifes" hidden>
                      <button>Read more</button>
+                     <a class="edit" href="edit.php?id=<?= $row['id'] ?>&mode=lifes">Edit</a>
+                     <a class="delete" href="delete.php?id=<?= $row['id'] ?>&mode=lifes">Delete</a>
                   </form>
                </div>
             </div>
@@ -124,6 +126,8 @@ while($row = $pr->fetch_assoc()){
                      <input type="text" name="id" value="<?= $row['id'] ?>" hidden>
                      <input type="text" name="mode" value="phenomenas" hidden>
                      <button>Read more</button>
+                     <a class="edit" href="edit.php?id=<?= $row['id'] ?>&mode=phenomenas">Edit</a>
+                     <a class="delete" href="delete.php?id=<?= $row['id'] ?>&mode=phenomenas">Delete</a>
                   </form>
                </div>
             </div>
