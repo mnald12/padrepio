@@ -35,7 +35,7 @@ $contents = $result->fetch_assoc();
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Saint Padre Pio</title>
-    <link rel="stylesheet" href="nav.css" />
+    <link rel="stylesheet" href="nav.css?v=<?php echo time(); ?>" />
     <link rel="stylesheet" href="index.css" />
 </head>
 <body>

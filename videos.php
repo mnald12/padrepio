@@ -12,7 +12,7 @@ if(!isset($_SESSION['userid'])){
       <meta http-equiv="X-UA-Compatible" content="IE=edge" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <title>Videos</title>
-      <link rel="stylesheet" href="nav.css" />
+      <link rel="stylesheet" href="nav.css?v=<?php echo time(); ?>" />
       <link rel="stylesheet" href="videos.css" />
    </head>
    <body>

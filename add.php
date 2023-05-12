@@ -30,7 +30,7 @@ if(!$mode){
       <meta http-equiv="X-UA-Compatible" content="IE=edge" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <title>Photos</title>
-      <link rel="stylesheet" href="nav.css" />
+      <link rel="stylesheet" href="nav.css?v=<?php echo time(); ?>" />
       <style>
         form{
             width: 100%;
